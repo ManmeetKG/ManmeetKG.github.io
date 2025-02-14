@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <title>Will You Be My Valentine?</title>
+  <link href = "envelope.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Great Vibes', cursive;
+      background-color: #ffccf2; /* Light pink background */
+      color: #ff1493; /* Deep pink text */
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 4rem;
+      margin-top: 2rem;
+    }
+
+    p {
+        line-height: 1.5;
+    }
+
+    .container {
+      margin-top: 2rem;
+    }
+
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      background-color: #ff1493;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 0.5rem;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff69b4;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      transform: rotate(-45deg);
+      animation: float 5s infinite ease-in-out;
+    }
+
+    .heart:before,
+    .heart:after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: red;
+      border-radius: 50%;
+    }
+
+    .heart:before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart:after {
+      top: 0;
+      left: 10px;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0) rotate(-45deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(-45deg);
+      }
+    }
+
+    
+
+  
+
+</style>
+
+
+
+</head>
+
+<body>
+    <h1>Will You Be My Valentine?</h1>
+    <div class="container">
+      <button id="yesButton">Yes</button>
+      <button id="noButton">No</button>
+    </div>
+    <div id="responseMessage"></div>
+    
+    <div id = "yesAnswer">
+        <div class="envelope-wrapper">
+            <div id = "envelope" class = "close">
+                <div class = "front flap"></div>
+                <div class = "front pocket"></div>
+                <div class = "letter">
+                    <p class = "WordsLine1"> Hi Bebuj </p>
+                    <p class = "WordsLine2"> MY FAV VALENTINE </p>
+                    <p class = "WordsLine3"> You mean so much to me </p>
+                    <p class = "WordsLine4"> I love YOU </p>
+                </div>
+                <div class = "hearts">
+                    <div class = "heart a1"></div>
+                    <div class = "heart a2"></div>
+                    <div class = "heart a3"></div>
+                </div>
+            </div>
+        </div>
+        <div class = "reset">
+            <button id = "open">Open</button>
+            <button id = "reset">Reset</button>
+        </div>
+        <script src="index.js"></script>
+        </div>
+
+    <script>
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+        const responseMessage = document.getElementById('responseMessage');
+        const envelope = document.getElementById('envelope');
+        const letter = document.getElementById('letter');
+        const heartsContainer = document.getElementById('heartsContainer');
+
+        const yesAnswer = document.getElementById('yesAnswer');
+    
+        let noCount = 0;
+    
+        noButton.addEventListener('click', () => {
+          noCount++;
+          if (noCount === 1) {
+            responseMessage.textContent = "No way you meant that!";
+            yesAnswer.style.display = 'none';
+          } else if (noCount === 2) {
+            responseMessage.textContent = "Now you're hurting my feelings!";
+            yesAnswer.style.display = 'none';
+          }
+        });
+
+        yesButton.addEventListener('click', () => {
+            yesAnswer.style.display = 'block';
+            responseMessage.textContent = "";
+            noCount = 0;
+        })
+
+
+
+    </script>
+
+
+
+    
+
+</body>
+</html>
